@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MyTable = () => {
   const [data, setData] = useState([
-    { id: 1, Campaigns: 'Cosmatics', Clicks: 712, Cost: 165568, Conversions: 8, Revenue: 16568 },
+    { id: 1, Campaigns: 'Cosmatics', Clicks: 712, Cost: 4272, Conversions: 8, Revenue: 16568 },
     { id: 2, Campaigns: 'Serums', Clicks: 3961, Cost: 27331, Conversions: 115, Revenue: 362526 },
     { id: 3, Campaigns: 'Facewash', Clicks: 9462, Cost: 76831, Conversions: 123, Revenue: 266800 },
     { id: 4, Campaigns: 'Shampoos', Clicks: 439, Cost: 2151, Conversions: 5, Revenue: 11029 },
@@ -13,6 +13,19 @@ const MyTable = () => {
 
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
   const [sortKey, setSortKey] = useState(null);
+  useEffect(() => {
+    calculateTotals();
+  }, [data]);
+
+  const calculateTotals = () => {
+    const totalClicks = data.reduce((total, item) => total + item.Clicks, 0);
+    const totalCost = data.reduce((total, item) => total + item.Cost, 0);
+    const totalConversions = data.reduce((total, item) => total + item.Conversions, 0);
+    const totalRevenue = data.reduce((total, item) => total + item.Revenue, 0);
+    setTotals({ totalClicks, totalCost,totalConversions ,totalRevenue });
+  };
+
+  const [totals, setTotals] = useState({ totalClicks: 0, totalCost: 0,totalConversions: 0 ,totalRevenue: 0  });
 
   const handleSort = (key) => {
     const sortedData = [...data].sort((a, b) => {
@@ -38,6 +51,13 @@ const MyTable = () => {
       <div className="shadow border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
+          <tr>
+          <td className="px-6 py-4 whitespace-nowrap font-medium">Ad Insights</td>
+          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
+          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
+          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
+          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
+          </tr>
             <tr>
               <th
                 scope="col"
@@ -77,6 +97,7 @@ const MyTable = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
+         
             {data.map((item) => (
               <tr key={item.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{item.Campaigns}</td>
@@ -86,6 +107,13 @@ const MyTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap">USD {item.Revenue}</td>
               </tr>
             ))}
+            <tr>
+              <td className="px-6 py-4 whitespace-nowrap font-medium">Total</td>
+              <td className="px-6 py-4 whitespace-nowrap font-medium">{totals.totalClicks}</td>
+              <td className="px-6 py-4 whitespace-nowrap font-medium">USD {totals.totalCost}</td>
+              <td className="px-6 py-4 whitespace-nowrap font-medium">{totals.totalConversions}</td>
+              <td className="px-6 py-4 whitespace-nowrap font-medium">USD {totals.totalRevenue}</td>
+              </tr>
           </tbody>
         </table>
       </div>
