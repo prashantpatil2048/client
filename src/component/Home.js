@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
     function addfrom(e){
         e.preventDefault();
         setIsOpen(true);
+        setTimeout(()=>{
+            setIsOpen(false);
+            navigate('/createads');
+            
+        },6000)
     }
     return (
         <div className="fixed top-15 left-0 w-full h-full bg-slate-100 bg-opacity-50 flex items-center justify-center">
@@ -143,12 +150,7 @@ const Home = () => {
                 {isOpen && (
                     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
                       <div className="bg-blue-500 text-black px-32 py-16  rounded">
-                      <button
-                      onClick={() => setIsOpen(false)}
-                      className="bg-white text-blue-500 px-4 py-2 mt-4 rounded"
-                    >
-                      Close
-                    </button>
+                    
                         <p>Submitted.</p>
                         
                       </div>
