@@ -11,8 +11,8 @@ const COLORS = ['#ff7843', 'blue', 'black'];
 
 const PieChartWithPaddingAngle = () => {
   return (
-    <div className="max-w-md mx-auto my-10">
-    <div className="shadow border-b border-gray-200 sm:rounded-lg">
+    <div className="max-w-md mx-auto">
+    <div className="border-2 border-slate-200">
     <PieChart width={400} height={400}>
       <Pie
         data={chartData}

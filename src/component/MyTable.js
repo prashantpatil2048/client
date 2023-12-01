@@ -47,52 +47,53 @@ const MyTable = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto my-10">
-      <div className="shadow border-b border-gray-200 sm:rounded-lg">
+    
+      <div className="shadow border-2 border-gray-200 ml-4">
+      <div className="bg-white bg-opacity-50 px-6 py-4 border-2 border-slate-200">
+      <div className='flex justify-between'>
+      <label>Ad Insights</label>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+              </svg>
+              </div>
+     </div>
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
-          <tr>
-          <td className="px-6 py-4 whitespace-nowrap font-medium">Ad Insights</td>
-          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
-          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
-          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
-          <td className="px-6 py-4 whitespace-nowrap font-medium"></td>
-          </tr>
             <tr>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider cursor-pointer"
                 onClick={() => handleSort('Campaigns')}
               >
-              Campaigns {sortKey === 'Campaigns' && sortOrder === 'asc' ? '↑' : '↓'}
+              Campaigns {sortKey === 'Campaigns' && sortOrder === 'asc' ? '^' : '↓'}
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider cursor-pointer"
                 onClick={() => handleSort('Clicks')}
               >
-              Clicks {sortKey === 'Clicks' && sortOrder === 'asc' ? '↑' : '↓'}
+              Clicks {sortKey === 'Clicks' && sortOrder === 'asc' ? '^' : '↓'}
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider cursor-pointer"
                 onClick={() => handleSort('Cost')}
               >
-              Cost{sortKey === 'Cost' && sortOrder === 'asc' ? '↑' : '↓'}
+              Cost{sortKey === 'Cost' && sortOrder === 'asc' ? '^' : '↓'}
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider cursor-pointer"
                 onClick={() => handleSort('Conversions')}
               >
-              Conversions {sortKey === 'Conversions' && sortOrder === 'asc' ? '↑' : '↓'}
+              Conversions {sortKey === 'Conversions' && sortOrder === 'asc' ? '^' : '↓'}
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider cursor-pointer"
                 onClick={() => handleSort('Revenue')}
               >
-              Revenue{sortKey === 'Revenue' && sortOrder === 'asc' ? '↑' : '↓'}
+              Revenue{sortKey === 'Revenue' && sortOrder === 'asc' ? '^' : '↓'}
               </th>
             </tr>
           </thead>
@@ -117,7 +118,7 @@ const MyTable = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    
   );
 };
 
