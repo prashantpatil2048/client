@@ -14,16 +14,17 @@ const MyTable = () => {
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
   const [sortKey, setSortKey] = useState(null);
   useEffect(() => {
+    const calculateTotals = () => {
+      const totalClicks = data.reduce((total, item) => total + item.Clicks, 0);
+      const totalCost = data.reduce((total, item) => total + item.Cost, 0);
+      const totalConversions = data.reduce((total, item) => total + item.Conversions, 0);
+      const totalRevenue = data.reduce((total, item) => total + item.Revenue, 0);
+      setTotals({ totalClicks, totalCost,totalConversions ,totalRevenue });
+    };
     calculateTotals();
   }, [data]);
 
-  const calculateTotals = () => {
-    const totalClicks = data.reduce((total, item) => total + item.Clicks, 0);
-    const totalCost = data.reduce((total, item) => total + item.Cost, 0);
-    const totalConversions = data.reduce((total, item) => total + item.Conversions, 0);
-    const totalRevenue = data.reduce((total, item) => total + item.Revenue, 0);
-    setTotals({ totalClicks, totalCost,totalConversions ,totalRevenue });
-  };
+  
 
   const [totals, setTotals] = useState({ totalClicks: 0, totalCost: 0,totalConversions: 0 ,totalRevenue: 0  });
 

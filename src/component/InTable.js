@@ -50,7 +50,7 @@ const InTable = () => {
               <tr key={item.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{item.id}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.Person}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item. Persentage}%</td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.Persentage}%</td>
               </tr>
             ))}
            
