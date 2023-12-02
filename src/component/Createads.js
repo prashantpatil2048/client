@@ -10,12 +10,16 @@ const Createads = () => {
   function addfrom(e) {
     e.preventDefault();
     localStorage.setItem('saveText', text);
-    localStorage.setItem('savefile', file);
+    localStorage.setItem('savefile', file?.name);
 
 
     navigate('/');
 
 
+  } 
+  const handleFileChange = (e) => {
+    const files = e.target.files?.[0] || null;
+    setFile(files)
   }
 
   const handleCheckboxChange = () => {
@@ -69,8 +73,8 @@ const Createads = () => {
                 <input
                   type="file"
                   className="mt-1 p-2 border rounded-md w-full"
-                  value={file}
-                  onChange={(e)=>{setFile(e.target.value)}}
+                  // value={file}
+                  onChange={handleFileChange}
                   accept="image/*, video/*"
                 />
               </div>
