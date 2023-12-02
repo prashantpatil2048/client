@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 const Createads = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [isCheckedm, setIsCheckedm] = useState(false);
+  const [text, setText] = useState("");
   const navigate = useNavigate();
   function addfrom(e) {
     e.preventDefault();
-
+    localStorage.setItem('saveText', text);
 
 
     navigate('/');
@@ -42,6 +43,8 @@ const Createads = () => {
                 <input
                   type="text"
                   className="mt-1 p-2 border rounded-md w-full"
+                  value={text}
+                  onChange={(e)=>{setText(e.target.value)}}
                   placeholder="Enter text"
                 />
               </div>

@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
+    useEffect(() => {
+        const data = localStorage.getItem('saveText');
+
+      }, []);
     function addfrom(e){
         e.preventDefault();
         setIsOpen(true);
