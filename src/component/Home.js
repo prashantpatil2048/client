@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className="fixed top-15 left-0 w-full h-full bg-slate-100 bg-opacity-50 flex items-center justify-center">
             {/* Your content goes here */}
-            <div className=" bg-white bg-opacity-80 h-full w-full rounded-sm mt-10 mx-4 ">
+            <div className={isOpen?`blur-sm bg-white bg-opacity-80 h-full w-full rounded-sm mt-10 mx-4`:` bg-white bg-opacity-80 h-full w-full rounded-sm mt-10 mx-4`}>
                 <h4 className="text-xl mx-5 mt-2">Create Text & Media</h4>
                 {/* Add your modal content */}
 
@@ -147,17 +147,19 @@ const Home = () => {
                         Submit
                     </button>
                 </div>
-                {isOpen && (
-                    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
-                      <div className="bg-blue-500 text-black px-32 py-16  rounded">
-                    
-                        <p>Submitted.</p>
-                        
-                      </div>
-                    </div>
-                  )}
+               
             </div>
+            {isOpen && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+                  <div className="bg-white-900 shadow-lg text-black px-32 py-16  rounded">
+                
+                    <p>Submitted.</p>
+                    
+                  </div>
+                </div>
+              )}
         </div>
+        
     )
 }
 
