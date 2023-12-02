@@ -19,7 +19,7 @@ const Home = () => {
             setIsOpen(false);
             navigate('/createads');
             
-        },6000)
+        },600)
     }
     return (
         <div className="fixed top-15 left-0 w-full h-full bg-slate-100 bg-opacity-50 flex items-center justify-center">
