@@ -5,10 +5,12 @@ const Createads = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [isCheckedm, setIsCheckedm] = useState(false);
   const [text, setText] = useState("");
+  const [file, setFile] = useState("");
   const navigate = useNavigate();
   function addfrom(e) {
     e.preventDefault();
     localStorage.setItem('saveText', text);
+    localStorage.setItem('savefile', file);
 
 
     navigate('/');
@@ -67,6 +69,8 @@ const Createads = () => {
                 <input
                   type="file"
                   className="mt-1 p-2 border rounded-md w-full"
+                  value={file}
+                  onChange={(e)=>{setFile(e.target.value)}}
                   accept="image/*, video/*"
                 />
               </div>

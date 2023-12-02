@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [texts, setTexts] = useState("");
+    const [files, setFiles] = useState("");
     const navigate = useNavigate();
     useEffect(() => {
         const data = localStorage.getItem('saveText');
+        const dataf = localStorage.getItem('savefile');
         setTexts(data)
+        setFiles(dataf)
       }, []);
     function addfrom(e){
         e.preventDefault();
@@ -105,7 +108,8 @@ const Home = () => {
                         className="appearance-none border rounded w-full py-2 px-3 text-black-100 leading-tight  "
                         id="username"
                         type="text"
-                        placeholder="Add the URL of the video you want to use for the ad"
+                        
+                        placeholder={files||"Add the URL of the video you want to use for the ad"}
                     />
                 </div>
                 <div className="mx-4 my-2 grid grid-cols-2 space-x-6">
