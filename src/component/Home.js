@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [texts, setTexts] = useState("");
     const navigate = useNavigate();
     useEffect(() => {
         const data = localStorage.getItem('saveText');
-
+        setTexts(data)
       }, []);
     function addfrom(e){
         e.preventDefault();
@@ -33,7 +34,7 @@ const Home = () => {
                             className="appearance-none border rounded w-full py-2 px-3 text-black-100 leading-tight  "
                             id="username"
                             type="text"
-                            placeholder="Add the heading that would make users interest"
+                            placeholder={texts||"Add the heading that would make users interest"}
                         />
                         <label className="pt-5 block text-black-100 text-sm font-medium mb-2" htmlFor="username">
                         Heading 02
