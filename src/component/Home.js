@@ -150,7 +150,7 @@ const Home = () => {
                
             </div>
             {isOpen && (
-                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+                <div className="fixed shadow-lg top-0 left-0 w-full h-full flex items-center justify-center">
                   <div className="bg-white-900 shadow-lg text-black px-32 py-16  rounded">
                 
                     <p>Submitted.</p>

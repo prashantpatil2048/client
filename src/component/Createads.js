@@ -26,7 +26,17 @@ const Createads = () => {
                     onChange={handleCheckboxChange}
                     className="form-checkbox h-5 w-5 text-blue-500 focus:ring-blue-400 border-gray-300 rounded"
                   />
-                  <p className="text-slate-300 flex justify-center">Create</p>
+                  {isChecked ? (
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700">Text Input</label>
+                      <input
+                                      type="text"
+                                      className="mt-1 p-2 border rounded-md w-full"
+                                      placeholder="Enter text"
+                                    />
+                    </div>
+                  ): <p className="text-slate-300 flex justify-center">Create</p>}
+                 
                         <h2 className="text-2xl font-bold mb-4 flex justify-center">Text Ad</h2>
                         
                     </div>
@@ -38,7 +48,17 @@ const Createads = () => {
                     onChange={handleCheckboxChangem}
                     className="form-checkbox h-5 w-5 text-blue-500 focus:ring-blue-400 border-gray-300 rounded"
                   />
-                  <p className="text-slate-300 flex justify-center">Create</p>
+                  {isCheckedm ? (
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700">Media Input</label>
+                      <input
+                        type="file"
+                        className="mt-1 p-2 border rounded-md w-full"
+                        accept="image/*, video/*"
+                      />
+                    </div>
+                  ): <p className="text-slate-300 flex justify-center">Create</p>}
+                 
                         <h2 className="text-2xl font-bold flex justify-center mb-4">Media Ad</h2>
                         
                     </div>
